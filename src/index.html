@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalleresJS</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="my-card card">
+            <label for="">Ejercicio 1</label>
+            <div class="card-body">
+                <div class="form-inline">
+                    <label for=""> Numero 1</label>
+                    <input type="text" class="form-control" id="numberOne">
+                </div>
+                <div class="form-inline">
+                    <label for=""> Numero 2</label>
+                    <input type="text" class="form-control" id="numberTwo">
+                </div>
+                <div class="form-inline">
+                    <button class="btn btn-primary" onclick="calculate()">Calcular</button>
+                </div>
+                <div>
+                    <span>Resultado : </span>
+                    <h5 id="resultado" class=""> ------- </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    const inputNumberOne = document.getElementById("numberOne");
+    const inputNumberTwo = document.getElementById("numberTwo");
+    const h5Result = document.getElementById("resultado");
+
+    function calculate() {
+        const n1 = parseInt(inputNumberOne.value);
+        const n2 = parseInt(inputNumberTwo.value);
+        if (hasDataAnError(n1, n2)) {
+            onError();
+            return;
+        }
+        onSuccess(n1, n2);
+    }
+
+    function hasDataAnError(n1, n2) {
+        return !n1 || !n2;
+    }
+
+    function onError() {
+        h5Result.innerHTML = "ingrese datos validos";
+        h5Result.classList.add("text-danger");
+    }
+
+    function onSuccess(n1, n2) {
+        h5Result.innerHTML = add(n1, n2);
+        h5Result.classList.remove("text-danger");
+    }
+
+    function add(n1, n2) {
+        return n1 + n2;
+    }
+</script>
