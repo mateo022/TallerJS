@@ -52,29 +52,31 @@
         </div>
     </div>
     <div class="ejercicio3">
-        <div class="my-card card">
+    </div>
+    <div class="my-card card">
+        <div class="card-body">
             <label for="">Ejercicio 3</label>
-            <div class="card-body">
+            <div class="form-inline">
+                <label for=""> Numero</label>
+                <input type="text" class="form-control" id="number">
                 <div class="form-inline">
-                    <label for=""> Numero</label>
-                    <input type="text" class="form-control" id="number">
-                    <div class="form-inline">
-                        <button class="btn btn-primary" onclick="show()">Operacion</button>
-                    </div>
-                    <div>
+                    <button class="btn btn-primary" onclick="show()">Calcular</button>
+                </div>
+                <div>
 
-                        <h5 id="ejer3" class=""> ------- </h5>
-                    </div>
+                    <h5 id="ejer3" class=""> ------- </h5>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <div class="ejercicio4">
 
         <div class="container">
-            <label for="">Ejercicio 4</label>
             <div class="card">
+                <label for="">Ejercicio 4</label>
+
                 <div class="form-inline">
                     <button class="btn btn-success" onclick="calcular()"> Calcular</button>
 
@@ -91,17 +93,36 @@
                     <label for="">Numero 3</label>
                     <input type="text" class="form-control" id="num3">
                 </div>
-                <h5 id="resultado1" class="">-------</h5>
+                <h5 id="resultado1" class="">Resultado </h5>
             </div>
         </div>
     </div>
+    <div class="ejercicio5">
+        <div class="my-card card">
+            <div class="card-body">
+                <label for="">Ejercicio 5</label>
+                <div class="form-inline">
+                    <label for=""> Factorial</label>
+                    <input type="text" class="form-control" id="numb">
+                    <div class="form-inline">
+                        <button class="btn btn-primary" onclick="factorial()">Calcular</button>
+                    </div>
+                    <div>
+
+                        <h5 id="result5"> ------- </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
 <script>
-    const inputNumberOne = document.getElementById("numberOne");
-    const inputNumberTwo = document.getElementById("numberTwo");
-    const h5Result = document.getElementById("result");
+    const inputNumberOne = document.getElementById("numberOne ");
+    const inputNumberTwo = document.getElementById("numberTwo ");
+    const h5Result = document.getElementById("result ");
 
     function calculate() {
         const n1 = parseInt(inputNumberOne.value);
@@ -118,21 +139,21 @@
     }
 
     function onError() {
-        h5Result.innerHTML = "ingrese datos validos";
-        h5Result.classList.add("text-danger");
+        h5Result.innerHTML = "ingrese datos validos ";
+        h5Result.classList.add("text-danger ");
     }
 
     function onSuccess(n1, n2) {
         h5Result.innerHTML = add(n1, n2);
-        h5Result.classList.remove("text-danger");
+        h5Result.classList.remove("text-danger ");
     }
 
     function add(n1, n2) {
         return n1 + n2;
     }
     /*Ejercicio 2 edades*/
-    const edad = document.getElementById("Edad");
-    const message = document.getElementById("ejer2");
+    const edad = document.getElementById("Edad ");
+    const message = document.getElementById("ejer2 ");
 
     function main() {
 
@@ -147,8 +168,8 @@
 
     function error() {
 
-        message.innerHTML = "Ingrese datos validos";
-        message.classList.add("text-danger");
+        message.innerHTML = "Ingrese datos validos ";
+        message.classList.add("text-danger ");
     }
 
     function evaluate(edad) {
@@ -161,21 +182,21 @@
     }
 
     function mayor(edad) {
-        message.classList.remove("text-danger");
+        message.classList.remove("text-danger ");
         message.innerHTML = ` ${edad},  años es mayor de edad`;
-        message.classList.add("text-success");
+        message.classList.add("text-success ");
     }
 
     function menor(edad) {
-        message.classList.remove("text-danger");
+        message.classList.remove("text-danger ");
         message.innerHTML = ` ${edad}, años es menor de edad`;
-        message.classList.add("text-info");
+        message.classList.add("text-info ");
 
     }
     /*Ejercicio 3 , impares y pares*/
 
-    const par = document.getElementById("number");
-    const resultado = document.getElementById("ejer3");
+    const par = document.getElementById("number ");
+    const resultado = document.getElementById("ejer3 ");
 
     function show() {
         const n = parseInt(par.value);
@@ -204,10 +225,10 @@
 
     }
     /*ejercicio4*/
-    const number1 = document.getElementById("num1");
-    const number2 = document.getElementById("num2");
-    const number3 = document.getElementById("num3");
-    const resultado1 = document.getElementById("resultado1");
+    const number1 = document.getElementById("num1 ");
+    const number2 = document.getElementById("num2 ");
+    const number3 = document.getElementById("num3 ");
+    const resultado1 = document.getElementById("resultado1 ");
 
     function calcular() {
         const n1 = parseInt(number1.value);
@@ -223,15 +244,15 @@
 
     function validation(n1, n2, n3) {
 
-        resultado1.classList.add("text-danger");
+        resultado1.classList.add("text-danger ");
 
         if (!n1) {
 
-            resultado1.innerHTML = "  "
+            resultado1.innerHTML = " "
 
         } else if (!n2) {
 
-            resultado1.innerHTML = "  "
+            resultado1.innerHTML = " "
         } else if (!n3) {
             resultado1.innerHTML = " "
         }
@@ -239,7 +260,7 @@
 
     function Nmayor(n1, n2, n3) {
 
-        resultado1.classList.remove("text-danger");
+        resultado1.classList.remove("text-danger ");
 
         let mayor = 0;
 
@@ -251,7 +272,19 @@
             mayor = n3
         }
         resultado1.innerHTML = `Numero mayor es: ${mayor}`;
-        resultado1.classList.add("text-success");
+        resultado1.classList.add("text-success ");
 
+    }
+    /*ejercicio5*/
+    const numb = document.getElementById("numb");
+    const resultado5 = document.getElementById("result5 ");
+
+    function factorial() {
+        let nb = parseInt(numb.value)
+        let total = 1;
+        for (i = 1; i <= nb; i++) {
+            total = total * i;
+        }
+        result5.innerHTML = `${total}`;
     }
 </script>

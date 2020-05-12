@@ -8,3 +8,5 @@ Maquetar según la gráfica y generar la lógica correspondiente a cada puto:
 
 3.si un número ingresado desde el teclado es un número par o impar.
 
+4.Dados tres números calcular el mayor.
+
