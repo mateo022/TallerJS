@@ -110,8 +110,30 @@
                 </div>
                 <h5 id="result5" class="">Resultado </h5>
             </div>
-            <div>
+        </div>
+        <div>
+            <div class="ejercicicio6">
 
+                <div class="my-card card">
+                    <label for="">Ejercicio 6</label>
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <label for=""> Cantidad Invertir :</label>
+                            <input type="text" class="form-control" id="Cantidad">
+                        </div>
+                        <div class="form-inline">
+                            <label for="">Taza de interes : 0.5</label>
+                        </div>
+                        <div class="form-inline">
+                            <button class="btn btn-primary" onclick="calculate()">Capital total</button>
+                        </div>
+                        <div>
+                            <span>Resultado : </span>
+                            <h5 id="Cresultado" class=""> ------- </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>
@@ -281,5 +303,36 @@
             total = total * i;
         }
         result5.innerHTML = `${total}`;
+    }
+    /*Ejercicio6*/
+    const inputCantidad = document.getElementById("Cantidad");
+    const Cresultado = document.getElementById("Cresultado");
+
+    function calculate() {
+        const CI = parseInt(inputCantidad.value);
+        const TI = 0.5;
+        if (hasDataAnError(CI, TI)) {
+            onError();
+            return;
+        }
+        onSuccess(CI, TI);
+    }
+
+    function hasDataAnError(CI, TI) {
+        return !CI || !TI;
+    }
+
+    function onError() {
+        Cresultado.innerHTML = "ingrese datos validos";
+        Cresultado.classList.add("text-danger");
+    }
+
+    function onSuccess(CI, TI) {
+        Cresultado.innerHTML = add(CI, TI);
+        Cresultado.classList.remove("text-danger");
+    }
+
+    function add(CI, TI) {
+        return CI * TI / 100;
     }
 </script>
