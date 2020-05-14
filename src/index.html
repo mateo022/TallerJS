@@ -134,6 +134,35 @@
                     </div>
                 </div>
             </div>
+            <div class="ejercicio7">
+                <div class="my-card card">
+                    <h3>Ingrese notas entre 1.0 y 10.0 para pasar la materia debe de sacar más de 7.0</h3>
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label for=""> Nota 1 :</label>
+                                <input type="text" class="form-control" id="nota1">
+                            </div>
+
+                            <div class="form-inline">
+                                <label for=""> Nota 2 :</label>
+                                <input type="text" class="form-control" id="nota2">
+                            </div>
+
+                            <div class="form-inline">
+                                <label for=""> Nota 3 :</label>
+                                <input type="text" class="form-control" id="nota3">
+                            </div>
+
+                        </div>
+                        <button class="btn btn-primary" onclick="notafinal()">Calcular Nota</button>
+                        <div class="form-inline">
+                            <h5 id="prom" class=""> </h5>
+                        </div>
+                        <h5 id="gapi" class="">----</h5>
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>
@@ -334,5 +363,44 @@
 
     function add(CI, TI) {
         return CI * TI / 100;
+    }
+    /*Ejercicio7*/
+    const nota1 = document.getElementById("nota1");
+    const nota2 = document.getElementById("nota2");
+    const nota3 = document.getElementById("nota3");
+    const promedio = document.getElementById("prom");
+    const ganapierde = document.getElementById("gapi");
+
+
+
+    function notafinal() {
+        const n1 = parseInt(nota1.value);
+        const n2 = parseInt(nota2.value);
+        const n3 = parseInt(nota3.value);
+
+        if (!n1 || !n2 || !n3) {
+            validation(n1, n2, n3);
+        } else {
+            notafinish(n1, n2, n3);
+        }
+    }
+
+    function notafinish(n1, n2, n3) {
+        const prome = (n1 + n2 + n3) / 3
+
+        promedio.innerHTML = prome;
+        gapi(prome);
+    }
+
+    function gapi(pro) {
+        ganapierde.classList.remove("text-danger");
+        ganapierde.classList.add("text-success");
+        if (pro < 7) {
+            ganapierde.classList.add("text-danger");
+
+            ganapierde.innerHTML = "No pasaste la materia";
+        } else {
+            ganapierde.innerHTML = "Pasaste la meteria";
+        }
     }
 </script>
